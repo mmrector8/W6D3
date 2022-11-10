@@ -10,7 +10,7 @@
 #
 class ArtworkShare < ApplicationRecord
 
-    belongs_to :share,
+    belongs_to :artwork,
         primary_key: :id,
         foreign_key: :artwork_id,
         class_name: :Artwork

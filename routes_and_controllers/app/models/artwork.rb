@@ -12,7 +12,7 @@
 class Artwork < ApplicationRecord
     validates :title, presence: true
     validates :image_url, presence: true, uniqueness: true
-    validates :artist_id, presence: true, uniqueness: true
+    validates :artist_id, presence: true
     validates :title, uniqueness: { scope: :artist_id }
     
     belongs_to :artist,
@@ -23,6 +23,14 @@ class Artwork < ApplicationRecord
     has_many :shares,
         primary_key: :id,
         foreign_key: :artwork_id,
-        class_name: :ArtworkShare
+        class_name: :ArtworkShare,
+        dependent: :destroy
 
+    def self.artworks_for_user_id(user_id)
+        #return array of hashes with all artworks associated with user_id
+        #artworks that belong to artist
+        #artworks that are shared with artist/user
+        user = User.find(user_id)
+        user.artworks + user.shared_artworks
+    end
 end
