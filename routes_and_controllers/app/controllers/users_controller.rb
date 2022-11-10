@@ -4,15 +4,15 @@ class UsersController < ApplicationController
        users = User.all
        render json: users
     end
+    
 
     def create
         user = User.new(user_params)
        if user.save!
-            redirect_to user_url(user.id)
+        render json: user 
        else
-            render json: user.errors.full_messages, status: :unprocessable_entity
+        render json: user.errors.full_messages, status: 422
        end
-       render json: user
     end
 
     def show
@@ -20,13 +20,7 @@ class UsersController < ApplicationController
     end
 
     private
-
     def user_params
         params.require(:user).permit(:name, :email)
     end
 end
-
-# '/users?some_category[a_key] = another+value & 
-# some_category[a_second_key] = yet+another+value & 
-# some_category[inner_inner_hash][key] = value & 
-# something_else=aaahhhhh'
