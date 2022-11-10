@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
     def index
-       #render plain: "Our names are Nathan and Morgan!"
        users = User.all
        render json: users
     end
@@ -16,7 +15,23 @@ class UsersController < ApplicationController
     end
 
     def show
-        render json: params
+        user = User.find(params[:id])
+        render json: user
+    end
+
+    def update
+        user = User.find_by(id: params[:id])
+        if user.update(user_params)
+            redirect_to user_url(user.id)
+        else
+            render json: @user.errors.full_messages, status: 422
+        end
+    end
+
+    def destroy
+        user = User.find(params[:id])
+        user.destroy
+        redirect_to users_url
     end
 
     private
