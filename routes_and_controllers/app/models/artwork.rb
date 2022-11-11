@@ -23,6 +23,7 @@ class Artwork < ApplicationRecord
     has_many :shares,
         primary_key: :id,
         foreign_key: :artwork_id,
+        inverse_of: :artwork,
         class_name: :ArtworkShare,
         dependent: :destroy
 
