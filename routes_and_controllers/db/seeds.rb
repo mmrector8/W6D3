@@ -30,6 +30,21 @@ share4 = ArtworkShare.create({artwork_id: art5.id, viewer_id: user4.id})
 share5 = ArtworkShare.create({artwork_id: art8.id, viewer_id: user3.id})
 share6 = ArtworkShare.create({artwork_id: art7.id, viewer_id: user1.id})
 
-# comment1 = Comment.create({body:})
-# comment2 = Comment.create
+comment1 = Comment.create({body:"And that's the waaaaaay the news goes!", artwork_id: art6.id, author_id: user5.id})
+
+
+comment2 = Comment.create({body: "I dont buy it", artwork_id: art8.id,  author_id: user5.id})
+
+comment3 = Comment.create({body:"Gretchen, stop trying to make fetch happen.", artwork_id: art3.id, author_id: user2.id})
+comment4 = Comment.create({body:"I hope this doesn't awaken anything in me.", artwork_id: art2.id, author_id: user1.id})
+
+comment5 = Comment.create({body: "have you watched the show Hot Ones", artwork_id: art2.id, author_id: user3.id})
+comment6 = Comment.create({body: "WE ARE GREAT AT ROUTES AND CONTROLLERS", artwork_id: art2.id, author_id: user3.id})
+comment7 = Comment.create({body: "art is ...... a myster", artwork_id: art5.id,  author_id: user3.id})
+
+comment8 = Comment.create({body:"I hope this doesn't awaken anything in me.", artwork_id: art2.id, author_id: user1.id})
+comment9 = Comment.create({body:"MEGAN THE STALLION", artwork_id: art2.id, author_id: user1.id})
+comment10 = Comment.create({body:"JOEY DOESN'T SHARE FOOD.", artwork_id: art2.id, author_id: user2.id})
+comment11 = Comment.create({body:"You are human tennis elbow! You are a pizza burn on the roof of the world's mouth! You are the opposite of Batman!", artwork_id: art4.id, author_id: user3.id})
+
 

@@ -41,8 +41,5 @@ class Artwork < ApplicationRecord
         user.artworks + user.shared_artworks
     end
 
-    def self.comments_for_artwork_id(artwork_id)
-        artwork = Artwork.find(artwork_id)
-        artwork.comments
-    end
+
 end

@@ -34,9 +34,4 @@ class User < ApplicationRecord
         class_name: :Comment,
         dependent: :destroy
 
-    def self.comments_for_user_id(user_id)
-        user = User.find(user_id)
-        user.comments
-    end
-
 end
