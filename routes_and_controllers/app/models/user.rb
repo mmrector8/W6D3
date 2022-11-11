@@ -13,7 +13,7 @@ class User < ApplicationRecord
     has_many :artworks,
         primary_key: :id,
         foreign_key: :artist_id,
-        inverse_of: :artist
+        inverse_of: :artist,
         class_name: :Artwork,
         dependent: :destroy
 
@@ -26,6 +26,17 @@ class User < ApplicationRecord
 
     has_many :shared_artworks,
         through: :shares,
-        source: :artwork,
+        source: :artwork
+
+    has_many :comments,
+        primary_key: :id,
+        foreign_key: :author_id,
+        class_name: :Comment,
+        dependent: :destroy
+
+    def self.comments_for_user_id(user_id)
+        user = User.find(user_id)
+        user.comments
+    end
 
 end

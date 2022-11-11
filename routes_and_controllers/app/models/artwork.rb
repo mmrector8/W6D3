@@ -26,6 +26,12 @@ class Artwork < ApplicationRecord
         inverse_of: :artwork,
         class_name: :ArtworkShare,
         dependent: :destroy
+    
+    has_many :comments,
+        primary_key: :id,
+        foreign_key: :artwork_id,
+        class_name: :Comment,
+        dependent: :destroy
 
     def self.artworks_for_user_id(user_id)
         #return array of hashes with all artworks associated with user_id
@@ -33,5 +39,10 @@ class Artwork < ApplicationRecord
         #artworks that are shared with artist/user
         user = User.find(user_id)
         user.artworks + user.shared_artworks
+    end
+
+    def self.comments_for_artwork_id(artwork_id)
+        artwork = Artwork.find(artwork_id)
+        artwork.comments
     end
 end

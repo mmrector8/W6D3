@@ -30,6 +30,6 @@ share4 = ArtworkShare.create({artwork_id: art5.id, viewer_id: user4.id})
 share5 = ArtworkShare.create({artwork_id: art8.id, viewer_id: user3.id})
 share6 = ArtworkShare.create({artwork_id: art7.id, viewer_id: user1.id})
 
-
-
+# comment1 = Comment.create({body:})
+# comment2 = Comment.create
 
